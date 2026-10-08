@@ -94,7 +94,7 @@
         </label>
       </section>
 
-      <!-- 4. Pests & areas -->
+      <!-- 4. Pests -->
       <section class="card">
         <h2><span class="step">4</span> Type of pest <em class="req">*</em></h2>
         <div class="chips" id="pests" data-group="pests" data-type="checkbox"></div>
@@ -102,8 +102,11 @@
           <span>Other pest</span>
           <input type="text" name="pestsOther" placeholder="Describe" />
         </label>
+      </section>
 
-        <h2 class="h2--gap"><span class="step">5</span> Inspection &amp; treatment areas <em class="req">*</em></h2>
+      <!-- 5. Areas -->
+      <section class="card">
+        <h2><span class="step">5</span> Inspection &amp; treatment areas <em class="req">*</em></h2>
         <div class="chips" id="areas" data-group="areas" data-type="checkbox"></div>
         <label class="field field--other" data-other-for="areas" hidden>
           <span>Other area</span>
@@ -211,7 +214,8 @@
     </section>
   </main>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4.4.1/dist/email.min.js"></script>
   <script src="js/config.js"></script>
   <script src="js/signature.js"></script>
