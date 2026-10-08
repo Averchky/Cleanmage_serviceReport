@@ -128,6 +128,7 @@ Each entry is tagged **SENT**, **DEMO · NOT SENT**, or **FAILED**. Logs are kep
 | `js/signature.js` | Finger and stylus signature pad |
 | `js/logger.js` | Submission log |
 | `assets/` | Cleanmage, NEA and bizSAFE logos, taken from the original service report (used on the form, PDF and email) |
+| `js/vendor/` | PDF and email libraries (html2canvas, jsPDF, EmailJS), stored here so the site doesn't depend on outside websites |
 | `.nojekyll` | Tells GitHub Pages to serve files as they are |
 
 The checkbox options (pests, areas, actions) are in `OPTIONS` at the top of `js/report.js`. Edit them there.
@@ -138,6 +139,14 @@ The checkbox options (pests, areas, actions) are in `OPTIONS` at the top of `js/
 
 - **No database yet.** Reports exist only as the email and the downloaded PDF. Next step: on submit, POST the report JSON (with signatures) to a backend, for example Supabase, Firebase, or a Google Apps Script that writes to a Google Sheet and Drive. The hook point is in `onSubmit()` in `js/app.js`, next to the `Database: not connected yet` log line.
 - **Report numbers** are timestamp-based (`B-YYYYMMDD-HHMMSS`). Once there's a database, switch to a server-issued running number like the paper `B 000100`.
-- **Needs internet** to load the PDF and email libraries and to send. An offline queue could be added later.
+- **Needs internet** to send the email. The libraries are stored in the repo, so they load even on networks that block CDNs. An offline queue could be added later.
 - **No login.** Anyone with the URL can open the form. Fine for a POC; add authentication before production.
 - EmailJS's free tier has a monthly email cap. Check their pricing page for the current limit.
+
+---
+
+## 6. Updating the site
+
+1. Upload the changed files to the repo and commit.
+2. In `index.html`, raise the `?v=` number on the script and stylesheet lines (e.g. `1.4` → `1.5`), and the matching `version` in `js/config.js`. This stops browsers from mixing old and new files.
+3. Check **App version** at the bottom of the Submission log card. If it shows the new number, the update is live on that device.

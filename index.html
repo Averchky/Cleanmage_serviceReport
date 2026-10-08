@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#ffffff" />
   <title>Cleanmage Service Report</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230f5c4d'/><path d='M9 17l5 5 9-11' stroke='white' stroke-width='3.2' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>" />
-  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/styles.css?v=1.4" />
 </head>
 <body>
   <header class="topbar">
@@ -211,16 +211,19 @@
       <p class="muted small">Kept on this device. Shows each submission, the recipient read from the Client email field, and the send result.</p>
       <ol id="logList" class="log-list"></ol>
       <p id="logEmpty" class="muted small">No submissions yet.</p>
+      <p class="muted small app-version">App version 1.4</p>
     </section>
   </main>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4.4.1/dist/email.min.js"></script>
-  <script src="js/config.js"></script>
-  <script src="js/signature.js"></script>
-  <script src="js/logger.js"></script>
-  <script src="js/report.js"></script>
-  <script src="js/app.js"></script>
+  <!-- Libraries are stored in this repo (js/vendor) so the site works on networks that block CDNs. -->
+  <script src="js/vendor/html2canvas-1.4.1.min.js"></script>
+  <script src="js/vendor/jspdf-2.5.1.umd.min.js"></script>
+  <script src="js/vendor/emailjs-browser-4.4.1.min.js"></script>
+  <!-- ?v= forces browsers to fetch fresh copies after each update. Bump it when you change these files. -->
+  <script src="js/config.js?v=1.4"></script>
+  <script src="js/signature.js?v=1.4"></script>
+  <script src="js/logger.js?v=1.4"></script>
+  <script src="js/report.js?v=1.4"></script>
+  <script src="js/app.js?v=1.4"></script>
 </body>
 </html>
